@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
+import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  // ESTE NAME ES SOLO A LOS EFECTOS DE LA PROPIEDAD ROUTER
+  // SI USO PATH EN EL ROUTER ESTO NO IRIA, EL STATIC ES PARA
+  // NO TENER QUE INSTANCIAR LA CLASE PARA ACCEDER A ESTA CONST
+  static const String name = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -61,13 +66,19 @@ class _CustomListTile extends StatelessWidget {
       title: Text(menuItem.title),
       subtitle: Text(menuItem.subTitle),
       onTap: () {
-        // ESTO PARA HACERLO EN DURO Y SIN LAS ROUTES DE MAIN
+        // ESTO PARA HACERLO EN DURO Y SIN LAS ROUTES DE MAIN, ESTOS DOS DE ABAJO
+        // SON PROPIOS DE FLUTTER
         // Navigator.of(context).push(
         //   MaterialPageRoute(
         //     builder: (context) => const ButtonsScreen(),
         //   ),
         // );
         // Navigator.pushNamed(context, menuItem.link);
+
+        // ESTAS DE ACA SON PROPIAS DEL GO_ROUTER
+        // SE PUEDE HACER ASI CON ESTE METODO PARA LOS NOMBRES,
+        // Y PODRIA METERSELO AL MENUITEM
+        // context.pushNamed(CardsScreen.name);
         context.push(menuItem.link);
       },
     );
