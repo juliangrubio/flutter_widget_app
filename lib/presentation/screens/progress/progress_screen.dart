@@ -56,7 +56,7 @@ class _ControllerProgressIndicator extends StatelessWidget {
           return (value * 2) / 100; // ESTO VA DE 0.0 A 1.0
           // ABAJO CUANDO LLEGA A 100 QUITA ESA SUSCRIPCION O LISTENER
           // TAMBIEN SI SALGO AL HOME VENDRIA A DESTRUIR EL STREAM, OSEA QUE NO QUEDA OCUPANDO MEMORIA
-        }).takeWhile((value) => value < 100),
+        }).takeWhile((value) => value < 1),
         builder: (context, snapshot) {
           
           final progressValue = snapshot.data ?? 0;
