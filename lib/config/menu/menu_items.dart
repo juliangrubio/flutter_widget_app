@@ -44,4 +44,9 @@ const appMenuItems = <MenuItem>[
       subTitle: 'Una serie de controles de Flutter',
       link: '/ui-controls',
       icon: Icons.car_rental_outlined),
+        MenuItem(
+      title: 'Introduccion a la aplicacion',
+      subTitle: 'Pequeño tutorial introductorio',
+      link: '/tutorial',
+      icon: Icons.accessible_rounded),
 ];
