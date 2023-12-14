@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
 import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
+import 'package:widgets_app/presentation/widgets/drawers/side_menu.dart';
 
 class HomeScreen extends StatelessWidget {
   // ESTE NAME ES SOLO A LOS EFECTOS DE LA PROPIEDAD ROUTER
@@ -13,11 +14,22 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
+      // ESTE KEY QUE ES DEL SUPER KEY, TIENE LA REFERENCIA DEL 
+      // ESTADO ACTUAL DEL SCAFFOLD Y VA A SER RECIBIDA POR ARGS EN SIDEMENU
+      key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Flutter + Material 3'),
       ),
       body: const _HomeView(),
+      // COMO RECIBE UN WIDGET, PODRIA DEJARLO ASI:
+      // drawer: const Placeholder(),
+      // PERO TIENE UN WIDGET ESPECIALIZADO PARA EL DRAWER COMUN, 
+      // PERO PARA PERSONALIZACIONES EL DE ARRIBA VA BIEN
+      drawer: SideMenu(scaffoldKey: scaffoldKey),
     );
   }
 }

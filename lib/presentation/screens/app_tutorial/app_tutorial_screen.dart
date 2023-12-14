@@ -50,7 +50,7 @@ class _AppTutorialState extends State<AppTutorial> {
           endReached = true;
         });
       }
-      // print('${pageviewController}');
+      print('${pageviewController.page}');
     });
   }
 
